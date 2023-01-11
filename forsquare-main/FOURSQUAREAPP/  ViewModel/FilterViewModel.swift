@@ -82,7 +82,7 @@ class FilterViewModel  {
     }
     
     func addFilters(outdoor_seating: Bool, dog_friendly: Bool, credit_card: Bool, delivery: Bool, parking: Bool, family_friendly: Bool, wifi: Bool, walkingDistance: Bool) {
-        let filter: [String:Any] = parameters
+        let filter: [String:Any] = parameters["filter"] as! [String: Any]
         let option = filter["option"] as! String
         var tempFeatures: [String:Any] = [:]
         var tempFilter: [String:Any] = [:]
@@ -90,25 +90,25 @@ class FilterViewModel  {
         if outdoor_seating {
             tempFeatures["outdoor_seating"] = true
         }
-        else if dog_friendly {
+        if dog_friendly {
             tempFeatures["dog_friendly"] = true
         }
-        else if credit_card {
+        if credit_card {
             tempFeatures["credit_card"] = true
         }
-        else if delivery {
+        if delivery {
             tempFeatures["delivery"] = true
         }
-        else if parking {
+        if parking {
             tempFeatures["parking"] = true
         }
-        else if family_friendly {
+        if family_friendly {
             tempFeatures["family_friendly"] = true
         }
-        else if wifi {
+        if wifi {
             tempFeatures["wifi"] = true
         }
-        else if walkingDistance {
+        if walkingDistance {
             tempFeatures["walkingDistance"] = true
         }
         
