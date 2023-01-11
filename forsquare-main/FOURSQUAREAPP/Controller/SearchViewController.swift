@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
     
-    
+    var isSearch: Bool = true
     var placeName = ["Manipal", "Udupi"]
     var placeimg: [UIImage] = [#imageLiteral(resourceName: "favourite_icon_selected") , #imageLiteral(resourceName: "login_bg")]
     var suggestion = ["Top Pick", "Lunch","Coffee","Dinner","NearYou"]
@@ -81,7 +81,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case suggestionsTableView:
             return 5
         case listTableView:
-            return searchViewModel.placesList.count
+            if isSearch {
+                return searchViewModel.placesList.count
+            } else {
+                return searchViewModel.filteredList.count
+            }
+            
         case featureTableView:
             return 5
         default:
@@ -104,7 +109,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell ?? UITableViewCell()
         case listTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? ContentTableViewCell
-            cell?.configure(place: searchViewModel.placesList[indexPath.row])
+            if isSearch {
+                cell?.configure(place: searchViewModel.placesList[indexPath.row])
+            } else {
+                cell?.configure(place: searchViewModel.filteredList[indexPath.row])
+            }
             return cell ?? UITableViewCell()
         case featureTableView:
             let cell = featureTableView.dequeueReusableCell(withIdentifier: "featuresCell") as? FeaturesTableViewCell

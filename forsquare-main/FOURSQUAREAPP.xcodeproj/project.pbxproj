@@ -67,7 +67,6 @@
 		CF70FD11296D9DBF00638D5C /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD10296D9DBF00638D5C /* RatingViewModel.swift */; };
 		CF70FD16296DAFA100638D5C /* AboutUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD15296DAFA100638D5C /* AboutUsViewModel.swift */; };
 		CF70FD1E296E5F5200638D5C /* FilterFeatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD1D296E5F5200638D5C /* FilterFeatureTableViewCell.swift */; };
-		CF70FD23296E734800638D5C /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD22296E734800638D5C /* FilterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,7 +153,6 @@
 		CF70FD10296D9DBF00638D5C /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		CF70FD15296DAFA100638D5C /* AboutUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewModel.swift; sourceTree = "<group>"; };
 		CF70FD1D296E5F5200638D5C /* FilterFeatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFeatureTableViewCell.swift; sourceTree = "<group>"; };
-		CF70FD22296E734800638D5C /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,7 +275,6 @@
 				CF70FD08296D813A00638D5C /* FeebackViewModel.swift */,
 				CF70FD10296D9DBF00638D5C /* RatingViewModel.swift */,
 				CF70FD15296DAFA100638D5C /* AboutUsViewModel.swift */,
-				CF70FD22296E734800638D5C /* FilterViewModel.swift */,
 			);
 			path = "  ViewModel";
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 				CF70FCF7296D6D8D00638D5C /* filterButton.swift in Sources */,
 				CF70FD04296D7E7600638D5C /* Review.swift in Sources */,
 				7DC7317629696F4600FD47DC /* Place.swift in Sources */,
-				CF70FD23296E734800638D5C /* FilterViewModel.swift in Sources */,
 				7DCED8092967CB3500065C4A /* RegistrationViewModel.swift in Sources */,
 				CF70FCE5296D3A5F00638D5C /* customRoundLabel.swift in Sources */,
 				7DCED81A2967E51100065C4A /* KeychainViewModel.swift in Sources */,

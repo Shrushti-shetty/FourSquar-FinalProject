@@ -34,9 +34,7 @@ class FilterViewController: UIViewController {
         featuresTableView.delegate = self
         featuresTableView.dataSource = self
         
-        let vm = FilterViewModel()
-    
-        vm.addFilters(outdoor_seating: true, dog_friendly: true, credit_card: false, delivery: true, parking: false, family_friendly: false, wifi: false, walkingDistance: true)
+        searchVM.addLatitudeLongitude(lat: Double(HomeViewModel.shared.userLatitude ?? "0") ?? 0.0, long: Double(HomeViewModel.shared.userLongitude ?? "0") ?? 0.0)
     }
     override func viewWillAppear(_ animated: Bool) {
         searchVM.fetchFeaturesData { (success, error) in
@@ -50,36 +48,53 @@ class FilterViewController: UIViewController {
             }
         }
     }
-    @IBAction func onClickPopular(_ sender: Any) {
+    @IBAction func onClickPopular(_ sender: UIButton) {
         if !onClickpopularBtn{
             popularBtn.select()
+            distanceBtn.deselect()
+            ratingBtn.deselect()
         }
         else{
             popularBtn.deselect()
         }
         onClickpopularBtn = !onClickpopularBtn
+        searchVM.addSortBy(by: sender.title(for: .normal)?.uppercased() ?? "")
+    }
+    @IBAction func setRadius(_ sender: UITextField) {
+        searchVM.addRadius(radius: sender.text ?? "0")
     }
     
-    @IBAction func onClickDistance(_ sender: Any) {
+    @IBAction func onClickDistance(_ sender: UIButton) {
         if !onClickdistanceBtn{
             distanceBtn.select()
+            popularBtn.deselect()
+            ratingBtn.deselect()
         }
         else{
             distanceBtn.deselect()
         }
         onClickdistanceBtn = !onClickdistanceBtn
+        searchVM.addSortBy(by: sender.title(for: .normal)?.uppercased() ?? "")
+
     }
     
-    @IBAction func onClickRating(_ sender: Any) {
+    @IBAction func onClickRating(_ sender: UIButton) {
         if !onClickratingBtn{
             ratingBtn.select()
+            distanceBtn.deselect()
+            popularBtn.deselect()
         }
         else{
             ratingBtn.deselect()
         }
         onClickratingBtn = !onClickratingBtn
+        searchVM.addSortBy(by: sender.title(for: .normal)?.uppercased() ?? "")
+
     }
     
+    @IBAction func onSearchType(_ sender: UITextField) {
+        searchVM.addOption(text: sender.text ?? "")
+    }
     
     @IBAction func onClickLowPrice(_ sender: Any) {
         if !onClicklowPriceBtn{
@@ -97,6 +112,7 @@ class FilterViewController: UIViewController {
         }
         
         onClicklowPriceBtn = !onClicklowPriceBtn
+        searchVM.expensiveRange(range: 1)
     }
     
     @IBAction func onClickAffordablePrice(_ sender: Any) {
@@ -114,6 +130,8 @@ class FilterViewController: UIViewController {
             expensivePrice.deselect()
         }
         onClickaffordablePriceBtn = !onClickaffordablePriceBtn
+        searchVM.expensiveRange(range: 2)
+
     }
     @IBAction func onClickHighPrice(_ sender: Any) {
         if !onClickhighPriceBtn{
@@ -130,6 +148,8 @@ class FilterViewController: UIViewController {
             expensivePrice.deselect()
         }
         onClickhighPriceBtn = !onClickhighPriceBtn
+        searchVM.expensiveRange(range: 3)
+
     }
     
     @IBAction func onClickExpensivePrice(_ sender: Any) {
@@ -147,6 +167,20 @@ class FilterViewController: UIViewController {
             expensivePrice.deselect()
         }
         onClickexpensivePriceBtn = !onClickexpensivePriceBtn
+        searchVM.expensiveRange(range: 4)
+
+    }
+    @IBAction func onDoneClick(_ sender: Any) {
+        searchVM.addFilters()
+        searchVM.postFilter { (bodyText,  error, statusCode) in
+            DispatchQueue.main.async {
+                if let vc = self.storyboard?.instantiateViewController(identifier: "SearchViewController") as? SearchViewController {
+                    vc.isSearch = false
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            }
+        }
     }
 }
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
@@ -161,6 +195,7 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.addFeatureButton.tag = indexPath.row
         return cell!
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Features"
     }
@@ -172,7 +207,7 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
 extension FilterViewController: SendAddFeatureAction {
     func toSendUserAction(index: Int) {
         let key = searchVM.features[index]
-        searchVM.filter[key] = !(searchVM.filter[key] ?? false)
-        print(searchVM.filter)
+        searchVM.featuredDict[key] = !(searchVM.featuredDict[key] ?? false)
+        print(searchVM.featuredDict)
     }
 }
