@@ -71,12 +71,22 @@ class FilterViewModel  {
         parameters["latitude"] = lat
         parameters["longitude"] = long
     }
-//    func addOption(text: String) {
-//        var temp["option"]
-//        parameters["filter"] = text
-//
-//        
-//    }
+    
+    func addOption(text: String) {
+        var temp: [String: String] = [:]
+        temp["option"] = text
+        parameters["filter"] = text
+    }
+    
+    func addFilters(outdoor_seating: Bool, dog_friendly: Bool, credit_card: Bool, delivery: Bool, parking: Bool, family_friendly: Bool, wifi: Bool, walkingDistance: Bool) {
+        let filter: [String:Any] = parameters["filter"]
+        let option: [String:String] = filter["option"]
+        var tempFilter: [String:Any] = [:]
+        if outdoor_seating {
+//            tempFilter["outdoor_seating"]
+        }
+        
+    }
     
     
 }
