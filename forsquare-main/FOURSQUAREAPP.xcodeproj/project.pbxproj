@@ -67,6 +67,8 @@
 		CF70FD11296D9DBF00638D5C /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD10296D9DBF00638D5C /* RatingViewModel.swift */; };
 		CF70FD16296DAFA100638D5C /* AboutUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD15296DAFA100638D5C /* AboutUsViewModel.swift */; };
 		CF70FD1E296E5F5200638D5C /* FilterFeatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD1D296E5F5200638D5C /* FilterFeatureTableViewCell.swift */; };
+		CF70FD23296E734800638D5C /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70FD22296E734800638D5C /* FilterViewModel.swift */; };
+		CFFDADB7296E9D0300FD25CA /* borderLessTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDADB6296E9D0300FD25CA /* borderLessTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,8 @@
 		CF70FD10296D9DBF00638D5C /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		CF70FD15296DAFA100638D5C /* AboutUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewModel.swift; sourceTree = "<group>"; };
 		CF70FD1D296E5F5200638D5C /* FilterFeatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFeatureTableViewCell.swift; sourceTree = "<group>"; };
+		CF70FD22296E734800638D5C /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		CFFDADB6296E9D0300FD25CA /* borderLessTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = borderLessTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,7 @@
 				CF70FCE9296D5B6C00638D5C /* Mapgradient.swift */,
 				CF70FCF6296D6D8D00638D5C /* filterButton.swift */,
 				CF70FD1D296E5F5200638D5C /* FilterFeatureTableViewCell.swift */,
+				CFFDADB6296E9D0300FD25CA /* borderLessTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				CF70FCFF296D7E5A00638D5C /* ReviewViewModel.swift in Sources */,
 				7D4FF4EE296993C400526A12 /* AddReviewViewController.swift in Sources */,
 				7DC73171296962B400FD47DC /* SearchViewModel.swift in Sources */,
+				CFFDADB7296E9D0300FD25CA /* borderLessTextField.swift in Sources */,
 				7D6C3B8E2965AA9100090C68 /* HomeViewModel.swift in Sources */,
 				7DC705D6295EC2D200597A36 /* HomeScreenViewController.swift in Sources */,
 				7D6C3B7029655FA500090C68 /* AboutUsViewController.swift in Sources */,
