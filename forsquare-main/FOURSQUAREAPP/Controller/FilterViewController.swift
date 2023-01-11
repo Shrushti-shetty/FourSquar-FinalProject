@@ -161,12 +161,12 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.addFeatureButton.tag = indexPath.row
         return cell!
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Features"
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Features"
+//    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 70
+//    }
     
 }
 extension FilterViewController: SendAddFeatureAction {
