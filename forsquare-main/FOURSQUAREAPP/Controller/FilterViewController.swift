@@ -33,6 +33,10 @@ class FilterViewController: UIViewController {
         super.viewDidLoad()
         featuresTableView.delegate = self
         featuresTableView.dataSource = self
+        
+        let vm = FilterViewModel()
+    
+        vm.addFilters(outdoor_seating: true, dog_friendly: true, credit_card: false, delivery: true, parking: false, family_friendly: false, wifi: false, walkingDistance: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         searchVM.fetchFeaturesData { (success, error) in

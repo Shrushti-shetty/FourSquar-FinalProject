@@ -25,7 +25,10 @@
 
 import Foundation
 class FilterViewModel  {
-    var parameters: [String:Any] = [:]
+    var parameters: [String:Any] = ["filter": [
+        "option": "Manipal"
+    ]
+    ]
     func postLiveScore(url: String, parameters: [String: Any], headers: [String: String]?, completion: @escaping(String, [String: Any]? , Error?, Int) -> Void) {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
@@ -79,12 +82,41 @@ class FilterViewModel  {
     }
     
     func addFilters(outdoor_seating: Bool, dog_friendly: Bool, credit_card: Bool, delivery: Bool, parking: Bool, family_friendly: Bool, wifi: Bool, walkingDistance: Bool) {
-        let filter: [String:Any] = parameters["filter"]
-        let option: [String:String] = filter["option"]
+        let filter: [String:Any] = parameters
+        let option = filter["option"] as! String
+        var tempFeatures: [String:Any] = [:]
         var tempFilter: [String:Any] = [:]
+        
         if outdoor_seating {
-//            tempFilter["outdoor_seating"]
+            tempFeatures["outdoor_seating"] = true
         }
+        else if dog_friendly {
+            tempFeatures["dog_friendly"] = true
+        }
+        else if credit_card {
+            tempFeatures["credit_card"] = true
+        }
+        else if delivery {
+            tempFeatures["delivery"] = true
+        }
+        else if parking {
+            tempFeatures["parking"] = true
+        }
+        else if family_friendly {
+            tempFeatures["family_friendly"] = true
+        }
+        else if wifi {
+            tempFeatures["wifi"] = true
+        }
+        else if walkingDistance {
+            tempFeatures["walkingDistance"] = true
+        }
+        
+        tempFilter["option"] = option
+        tempFilter["features"] = tempFeatures
+        
+        parameters["filter"] = tempFilter
+        print(parameters, "parameters")
         
     }
     
